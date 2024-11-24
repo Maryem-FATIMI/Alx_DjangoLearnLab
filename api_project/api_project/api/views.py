@@ -6,4 +6,3 @@ from .serializers import BookSerializer
 class BookListAPIView(generics.ListAPIView):
     queryset = Book.objects.all()
     serializer_class = BookSerializer
-

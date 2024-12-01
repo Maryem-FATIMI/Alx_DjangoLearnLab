@@ -9,6 +9,10 @@ from rest_framework.routers import DefaultRouter
 from rest_framework.authtoken.views import obtain_auth_token
 
 
+
+urlpatterns = [
+    path('api/', include(router.urls)),
+]
 router = DefaultRouter()
 router.register(r'books', BookViewSet)
 urlpatterns = [

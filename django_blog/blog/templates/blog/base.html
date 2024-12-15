@@ -1,3 +1,5 @@
+{%load static%}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,14 +10,24 @@
 </head>
 <body>
     <header>
-        <nav>
-            <ul>
-                <li><a href="{% url 'home' %}">Home</a></li>
-                <li><a href="{% url 'posts' %}">Blog Posts</a></li>
-                <li><a href="{% url 'login' %}">Login</a></li>
-                <li><a href="{% url 'register' %}">Register</a></li>
-            </ul>
-        </nav>
+            <nav>
+                <ul>
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li><a href="{% url 'post_list' %}">Blog Posts</a></li>
+                    <li><a href="{% url 'register' %}">Register</a></li>
+                    <li>
+                        <!-- Logout form -->
+                        <form action="{% url 'logout' %}" method="post" class="logout-form">
+                            {% csrf_token %}
+                            <button type="submit" class="logout-button">Logout</button>
+                        </form>
+                    </li>
+                </ul>
+            </nav>
+        <form action="{%url 'search' %}" method="get" class="search-form">
+            <input type="search" name="searched" placeholder="Search..." required>
+            <button type="submit">Search</button>
+        </form>
     </header>
 
     <div class="content">
